@@ -4,10 +4,16 @@ require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
+
 Bundler.require(*Rails.groups)
 
 module Chatset
   class Application < Rails::Application
+
+    app_environment_variables = File.join(Rails.root, 'config', 'environmental_variables.rb')
+    load(app_environment_variables) if File.exists?(app_environment_variables)
+
+    puts "here iam #{ENV['MYSQl_PASSWORD']}"
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

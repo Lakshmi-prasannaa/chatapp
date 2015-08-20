@@ -13,9 +13,6 @@
     <![endif]-->
 
     <%= stylesheet_link_tag "application", :media => "all" %>
-    <style>
-    body { padding-top: 70px; }
-    </style>
 
     <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels -->
@@ -41,7 +38,7 @@
   </head>
   <body>
 
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
@@ -61,23 +58,27 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container container-fluid">
         <div class="row">
           <div class="span9">
             <%= bootstrap_flash %>
             <%= yield %>
           </div>
+          <%if current_user%>
+          <%=link_to "Signout",signout_path%>
+          <%else%>
           <div class="span3">
             <div class="well sidebar-nav">
-              <h3>Sidebar</h3>
+              <h3>Login</h3>
               <ul class="nav nav-list">
-                <li class="nav-header">Sidebar</li>
-                <li><%= link_to "Link1", "/path1"  %></li>
-                <li><%= link_to "Link2", "/path2"  %></li>
-                <li><%= link_to "Link3", "/path3"  %></li>
+                <li class="nav-header"></li>
+                <li><%= link_to "Sign in with google", "/auth/google_login"  %></li>
+                <li><%= link_to "Sign in with facebook", "/auth/facebook"  %></li>
+                <li><%= link_to "Sign in with twitter", "/auth/twitter"  %></li>
               </ul>
             </div><!--/.well -->
           </div><!--/span-->
+          <%end%>
         </div><!--/row-->
 
       <footer>
