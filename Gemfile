@@ -32,7 +32,7 @@ gem "twitter-bootstrap-rails"
 gem "omniauth-google-oauth2"
 gem "omniauth-twitter"
 gem "omniauth-facebook"
-
+gem 'activerecord-session_store',github: 'rails/activerecord-session_store'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
