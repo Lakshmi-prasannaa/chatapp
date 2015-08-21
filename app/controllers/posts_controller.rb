@@ -1,10 +1,12 @@
 class PostsController < ApplicationController
+  before_filter :authenticate_user, :except => :new
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all
+    @users = User.all
   end
 
   # GET /posts/1
